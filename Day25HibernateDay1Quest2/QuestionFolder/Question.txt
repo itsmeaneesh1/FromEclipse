@@ -1,0 +1,65 @@
+Create a hibernate application persist the employee.
+
+Task : Create a database named myhibernate in MySQL and run the SQLQuery Attached.
+
+Tasks:
+1.Create a bean class Named Employee inside com.dsrc.bean package
+2.Create these private variables
+
+		int empno , string name , string city.
+		
+3. Create the getters and setters.
+4. Create the hibernate configuration file in src named hibernate.cfg.xml
+
+sample Configuration
+-----------------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">  
+  
+<hibernate-configuration>  ;
+  
+    <session-factory>  
+        <property name="hbm2ddl.auto">update</property>  
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>  
+        <property name="connection.url">jdbc:mysql://localhost:3306/nivi</property>  
+        <property name="connection.username">root</property>  
+        <property name="connection.password">dsrc</property>  
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>  
+     <mapping resource="employee.hbm.xml"/>   
+      </session-factory>  
+  
+</hibernate-configuration>  
+
+5. Create hibernate mapping file in src named employee.hbm.xml
+
+Sample Mapping
+------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+ <hibernate-mapping>  
+  <class name="com.dsrc.model.Employee" table="Employee">  
+    <id name="empid">  
+     <generator class="assigned"></generator>  
+    </id>              
+    <property name="firstname"></property>  
+    <property name="lastname"></property>  
+  </class>        
+ </hibernate-mapping>  
+
+6. Add the required jar files.
+7. Add the following code implementations in MyMain class saveEmployee method.
+	 a) Load the Configuration File using Configuration class.
+	 b) Create a session and transaction.
+	 c) Begin the transaction
+	 e) Call the methods to save the values passed as bean.
+	 f) Close all the objects
+	 g)System.out.println("Done...") as last line.. run the application
+	 f) Verify the data in the database MySQL.
+	  
+		
+	
